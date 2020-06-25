@@ -1,6 +1,8 @@
 package control.vistas.login;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Login {
 
@@ -15,6 +17,13 @@ public class Login {
 
     public Login(){
 
+        limpiarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                jTextUser.setText("");
+                jPassworPassword.setText("");
+            }
+        });
     }
     public void createUIComponents() {
         JFrame frame = new JFrame("Iniciar Sesion");
