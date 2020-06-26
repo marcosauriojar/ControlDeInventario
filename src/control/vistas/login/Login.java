@@ -1,5 +1,8 @@
 package control.vistas.login;
 
+import control.service.login.LoginAuth;
+import sun.rmi.runtime.Log;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,6 +25,19 @@ public class Login {
             public void actionPerformed(ActionEvent actionEvent) {
                 jTextUser.setText("");
                 jPassworPassword.setText("");
+            }
+        });
+        iniciarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                LoginAuth lg = new LoginAuth();
+                String usuario = jTextUser.getText();
+                String pass ="";
+                char password[] = jPassworPassword.getPassword();
+                for(int i = 0; i<password.length; i++){
+                    pass = pass + password[i];
+                }
+                lg.loginAuth(usuario,pass);
             }
         });
     }
